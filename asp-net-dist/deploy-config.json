@@ -1,0 +1,7 @@
+{
+  "ServicePort": 1582,
+  "SiteName": "AlfrescoConnectorASMX",
+  "AppPoolName": "AlfrescoConnectorPool",
+  "InstallPath": ".",
+  "Description": "Alfresco iCustomConnector2 ASMX Service"
+}
