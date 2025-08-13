@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-10-00-000000000",
+    "direction": ">",
+    "data": "POST /DataConnector.asmx HTTP/1.1\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.42000)\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://tempuri.org/GetServers\"\r\nHost: localhost:1582\r\nContent-Length: 1200\r\nExpect: 100-continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-10-00-001000000",
+    "direction": "<",
+    "data": "HTTP/1.1 100 Continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-10-00-002000000",
+    "direction": ">",
+    "data": "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetServers xmlns=\"http://tempuri.org/\"><conn><account>admin</account><password>admin</password><scrubAllData>true</scrubAllData><connectionId>3</connectionId><sourceSite>connectors</sourceSite><customparam>http://100.115.192.75:8080/</customparam><customparam2 /><customboolparam>false</customboolparam><customboolparam2>false</customboolparam2><customboolparam3>false</customboolparam3><customboolparam4>false</customboolparam4><customparam3 /><customparam4 /></conn><customparams><CustomPair><key>SPWCONTENTID</key><value>3</value></CustomPair></customparams></GetServers></soap:Body></soap:Envelope>"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-10-00-100000000",
+    "direction": "<",
+    "data": "HTTP/1.1 200 OK\r\nCache-Control: private, max-age=0\r\nContent-Type: text/xml; charset=utf-8\r\nServer: Microsoft-IIS/10.0\r\nX-AspNet-Version: 4.0.30319\r\nX-Powered-By: ASP.NET\r\nDate: Mon, 28 Jul 2025 12:10:00 GMT\r\nContent-Length: 550\r\n\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetServersResponse xmlns=\"http://tempuri.org/\"><GetServersResult><error>true</error><errorMsg>DoGetServers is not implemented in this connector. This method would normally return a list of available servers.</errorMsg><traceInfo /><values /></GetServersResult></GetServersResponse></soap:Body></soap:Envelope>"
+  }
+]

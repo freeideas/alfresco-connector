@@ -1,0 +1,162 @@
+ACTIONABLE ITEMS REPORT - iCustomConnector2 Implementation
+===========================================================
+Generated: 2025-08-13
+Source: Analysis of implementation reports from all 13 methods
+
+CRITICAL ISSUES REQUIRING IMMEDIATE ATTENTION
+==============================================
+
+1. MISSING AiGeneratedConnector.cs FILE [HIGH PRIORITY]
+--------------------------------------------------------
+Issue: README.md explicitly references AiGeneratedConnector.cs as the "Main partial class 
+       implementing iCustomConnector2" but this file does not exist in the project.
+
+Location Referenced:
+- /README.md (lines mentioning AiGeneratedConnector.cs in project structure)
+- /dist/ folder structure documentation
+
+Reports Mentioning This Issue:
+- DoGetServers_hardcode.txt
+- DoDescribe_hardcode.txt  
+- DoGetWebServices_hardcode.txt
+- DoGetGroupsGroups_hardcode.txt
+
+Impact: This is incorrect documentation that will immediately confuse developers trying to 
+        understand the project architecture. They will look for a file that doesn't exist.
+
+REQUIRED ACTION: 
+- Option A: Create the missing AiGeneratedConnector.cs file that implements iCustomConnector2 
+           and delegates to all Handler classes
+- Option B: Update README.md to remove all references to AiGeneratedConnector.cs and document 
+           the actual architecture being used
+
+Recommendation: Option A is preferred as it would provide a clean integration point and match 
+                the intended architecture.
+
+
+2. PROGRAM.CS HARDCODED TEST LIST [MEDIUM PRIORITY]
+----------------------------------------------------
+Issue: Program.cs maintains a manually hardcoded list of methods for the "run all tests" 
+       functionality. New method implementations must be manually added to this list.
+
+Current State: Tests for new methods won't run with the global test runner unless manually added.
+
+Reports Mentioning This Issue:
+- DoGetServers_hardcode.txt
+- DoDescribe_hardcode.txt
+- Multiple other reports mention test discovery issues
+
+Impact: Developers may think their tests are passing when using "all" option, but their new 
+        method tests aren't actually running.
+
+REQUIRED ACTION:
+- Implement reflection-based automatic test discovery in Program.cs
+- Pattern to discover: All classes in AiGeneratedConnector.Methods.* namespace with RunTests() method
+- Remove the hardcoded list and replace with dynamic discovery
+
+Example Implementation:
+```csharp
+var methodTypes = Assembly.GetExecutingAssembly()
+    .GetTypes()
+    .Where(t => t.Namespace?.StartsWith("AiGeneratedConnector.Methods") == true 
+                && t.Name == "Handler");
+```
+
+
+3. DIST.PY SCRIPT INTEGRATION ISSUE [MEDIUM PRIORITY]
+------------------------------------------------------
+Issue: The dist/DataConnector.asmx.cs file still contains NotImplementedException for methods 
+       instead of properly delegating to the new Handler implementations.
+
+Current State: The distributed package won't actually use any of the implementations.
+
+Impact: Legacy developers integrating the dist package will get NotImplementedException errors 
+        when calling the methods.
+
+REQUIRED ACTION:
+- Update dist.py script to automatically modify DataConnector.asmx.cs
+- Each method should delegate to the corresponding Handler class
+- Example: DoGetServers() should call AiGeneratedConnector.Methods.DoGetServers.Handler.DoGetServers()
+
+
+4. DOCUMENTATION INCONSISTENCIES [LOW PRIORITY]
+------------------------------------------------
+Issue: Multiple documentation inconsistencies and typos identified.
+
+Specific Issues:
+a) DoDescribe JSON has "PrasswordDesc" typo (should be "PasswordDesc")
+b) GROUP_ prefix requirement not clearly documented for group IDs
+c) Test runner documentation refers to wrong namespace
+
+REQUIRED ACTION:
+- Fix typo in /doc/per-interface-method/DoDescribe.json
+- Add clear documentation about GROUP_ prefix requirement for group identifiers
+- Update test runner documentation to use correct namespace (AiGeneratedConnector not DataConnector)
+
+
+5. TEST RUNNER NAMESPACE CONFUSION [LOW PRIORITY]
+--------------------------------------------------
+Issue: Test runner documentation and error messages refer to "DataConnector.Methods" namespace 
+       but actual implementation uses "AiGeneratedConnector.Methods" namespace.
+
+Impact: Confusion when running tests, especially for new developers.
+
+REQUIRED ACTION:
+- Update all test runner documentation to reflect correct namespace
+- Update error messages in unit_test.py script
+- Consider adding namespace aliases or better error messages when class not found
+
+
+ADDITIONAL RECOMMENDATIONS FROM REPORTS
+========================================
+
+1. Parameter Documentation
+--------------------------
+Multiple reports mention unclear parameter purposes, especially:
+- additionalColumns parameter in DoGetUsers/DoGetGroups
+- subid and foldersubid in DoItemData  
+- typefilters usage in various methods
+
+Action: Create comprehensive parameter documentation explaining purpose and expected values.
+
+
+2. Error Handling Patterns
+---------------------------
+Several reports note that error handling is duplicated across all Handler classes.
+
+Action: Consider creating a base Handler class with common error handling logic.
+
+
+3. Metadata Structure Clarity
+------------------------------
+DoItemData report mentions confusion about metadata field structure and what goes in 
+Hashtable vs direct properties.
+
+Action: Document clear guidelines for metadata field usage with examples.
+
+
+4. Test Coverage Expansion
+--------------------------
+Multiple reports suggest adding more edge case testing, especially for:
+- Invalid URL handling
+- Null parameter combinations
+- Empty result sets
+- Pagination boundaries
+
+Action: Create a comprehensive test suite template for future methods.
+
+
+SUMMARY
+=======
+The most critical issue is the missing AiGeneratedConnector.cs file referenced in README.md.
+This should be addressed immediately as it represents incorrect documentation that will 
+confuse any developer trying to understand or extend the project.
+
+The second most important issue is fixing the distribution script so that the packaged code 
+actually uses the implementations rather than throwing NotImplementedException.
+
+All other issues are quality-of-life improvements that would make the codebase more 
+maintainable but don't block functionality.
+
+Total Issues Identified: 5 major + 4 additional recommendations
+Estimated effort to fix all issues: 2-3 days of development work

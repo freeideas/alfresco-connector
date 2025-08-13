@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "stamp": "2025-07-24_16-38-51-921676000",
+        "direction": ">",
+        "data": "POST /DataConnector.asmx HTTP/1.1\r\nSOAPAction: \"http://tempuri.org/GetInterfaceVersion\"\r\nContent-Type: text/xml; charset=utf-8\r\nHost: localhost:1582\r\nContent-Length: 333\r\nExpect: 100-continue\r\nConnection: Keep-Alive\r\n\r\n"
+    },
+    {
+        "id": 1,
+        "stamp": "2025-07-24_16-38-51-922149000",
+        "direction": "<",
+        "data": "HTTP/1.1 100 Continue\r\n\r\n"
+    },
+    {
+        "id": 1,
+        "stamp": "2025-07-24_16-38-51-923533000",
+        "direction": ">",
+        "data": "\r\n            <soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n             <soap:Body>\r\n              <GetInterfaceVersion xmlns=\"http://tempuri.org/\" />\r\n             </soap:Body>\r\n            </soap:Envelope>"
+    },
+    {
+        "id": 1,
+        "stamp": "2025-07-24_16-38-51-924491000",
+        "direction": "<",
+        "data": "HTTP/1.1 500 Internal Server Error\r\nCache-Control: private\r\nContent-Type: text/xml; charset=utf-8\r\nServer: Microsoft-IIS/10.0\r\nX-AspNet-Version: 4.0.30319\r\nX-Powered-By: ASP.NET\r\nDate: Thu, 24 Jul 2025 16:38:51 GMT\r\nContent-Length: 808\r\n\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><soap:Fault><faultcode>soap:Client</faultcode><faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://tempuri.org/GetInterfaceVersion.\r\n   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()\r\n   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()\r\n   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring><detail /></soap:Fault></soap:Body></soap:Envelope>"
+    }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "stamp": "2025-01-01_12-00-00-000000000",
+    "direction": ">",
+    "data": "POST /DataConnector.asmx HTTP/1.1\r\nSOAPAction: \"http://tempuri.org/GetConnectorVersion\"\r\nContent-Type: text/xml; charset=utf-8\r\nHost: localhost:5000\r\nContent-Length: 350\r\nExpect: 100-continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-01-01_12-00-00-000001000",
+    "direction": "<",
+    "data": "HTTP/1.1 100 Continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-01-01_12-00-00-000002000",
+    "direction": ">",
+    "data": "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n <soap:Body>\r\n  <GetConnectorVersion xmlns=\"http://tempuri.org/\" />\r\n </soap:Body>\r\n</soap:Envelope>"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-01-01_12-00-00-000003000",
+    "direction": "<",
+    "data": "HTTP/1.1 200 OK\r\nCache-Control: private, max-age=0\r\nContent-Type: text/xml; charset=utf-8\r\nContent-Length: 400\r\n\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetConnectorVersionResponse xmlns=\"http://tempuri.org/\"><GetConnectorVersionResult>1.1.0.1</GetConnectorVersionResult></GetConnectorVersionResponse></soap:Body></soap:Envelope>"
+  }
+]

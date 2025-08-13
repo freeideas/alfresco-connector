@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-20-00-000000000",
+    "direction": ">",
+    "data": "POST / HTTP/1.1\r\nContent-Type: application/json\r\nHost: localhost:51018\r\nContent-Length: 150\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-20-00-001000000",
+    "direction": ">",
+    "data": "{\"jsonrpc\":\"2.0\",\"method\":\"tools/call\",\"params\":{\"name\":\"ShutdownNow\",\"arguments\":{}},\"id\":1}"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-20-00-050000000",
+    "direction": "<",
+    "data": "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nDate: Mon, 28 Jul 2025 12:20:00 GMT\r\nContent-Length: 180\r\n\r\n{\"jsonrpc\":\"2.0\",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"success\\\":true,\\\"message\\\":\\\"Server shutdown initiated\\\"}\"}]},\"id\":1}"
+  }
+]

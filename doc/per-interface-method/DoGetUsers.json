@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "stamp": "2025-07-24_17-15-51-375945000",
+    "direction": ">",
+    "data": "POST /DataConnector.asmx HTTP/1.1\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.42000)\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://tempuri.org/GetUsers2\"\r\nHost: localhost:1582\r\nContent-Length: 2245\r\nExpect: 100-continue\r\n\r\n"
+  },
+  {
+    "id": 2,
+    "stamp": "2025-07-24_17-15-51-375946000",
+    "direction": "<",
+    "data": "HTTP/1.1 100 Continue\r\n\r\n"
+  },
+  {
+    "id": 2,
+    "stamp": "2025-07-24_17-15-51-375948000",
+    "direction": ">",
+    "data": "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetUsers2 xmlns=\"http://tempuri.org/\"><conn><account>admin</account><password>admin</password><scrubAllData>true</scrubAllData><connectionId>3</connectionId><sourceSite>connectors</sourceSite><customparam>http://100.115.192.75:8080/</customparam><customparam2 /><customboolparam>false</customboolparam><customboolparam2>false</customboolparam2><customboolparam3>false</customboolparam3><customboolparam4>false</customboolparam4><customparam3 /><customparam4 /><customchoiceval /><customchoiceval2 /><customchoiceval3 /><customchoiceval4 /><BoolParameter><BoolPair><key>customboolparam</key><value /><Key>customboolparam</Key><Value>false</Value></BoolPair><BoolPair><key>customboolparam2</key><value /><Key>customboolparam2</Key><Value>false</Value></BoolPair><BoolPair><key>customboolparam3</key><value /><Key>customboolparam3</Key><Value>false</Value></BoolPair><BoolPair><key>customboolparam4</key><value /><Key>customboolparam4</Key><Value>false</Value></BoolPair></BoolParameter><StringParameter><StringPair><key>customparam</key><value>http://100.115.192.75:8080/</value><Key>customparam</Key><Value>http://100.115.192.75:8080/</Value></StringPair><StringPair><key>customparam2</key><value /><Key>customparam2</Key><Value /></StringPair><StringPair><key>customparam3</key><value /><Key>customparam3</Key><Value /></StringPair><StringPair><key>customparam4</key><value /><Key>customparam4</Key><Value /></StringPair></StringParameter><ChoiceParameter><ChoicePair><key>customchoiceval</key><value /><Key>customchoiceval</Key><Value /></ChoicePair><ChoicePair><key>customchoiceval2</key><value /><Key>customchoiceval2</Key><Value /></ChoicePair><ChoicePair><key>customchoiceval3</key><value /><Key>customchoiceval3</Key><Value /></ChoicePair><ChoicePair><key>customchoiceval4</key><value /><Key>customchoiceval4</Key><Value /></ChoicePair></ChoiceParameter></conn><customparams><CustomPair><key>SelectedDataStores</key><value>swsdp</value></CustomPair></customparams><tl>Warning</tl></GetUsers2></soap:Body></soap:Envelope>"
+  },
+  {
+    "id": 2,
+    "stamp": "2025-07-24_17-15-51-893042000",
+    "direction": "<",
+    "data": "HTTP/1.1 200 OK\r\nCache-Control: private, max-age=0\r\nTransfer-Encoding: chunked\r\nContent-Type: text/xml; charset=utf-8\r\nServer: Microsoft-IIS/10.0\r\nX-AspNet-Version: 4.0.30319\r\nX-Powered-By: ASP.NET\r\nDate: Thu, 24 Jul 2025 17:15:51 GMT\r\n\r\n66f\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetUsers2Response xmlns=\"http://tempuri.org/\"><GetUsers2Result><error>false</error><errorMsg /><traceInfo /><items><SystemIdentityInfo><uniqueid>abeecher</uniqueid><name>Alice Beecher</name><active>false</active><info><CustomPair><key>Email</key><value>abeecher@example.com</value></CustomPair><CustomPair><key>FirstName</key><value>Alice</value></CustomPair><CustomPair><key>LastName</key><value>Beecher</value></CustomPair></info></SystemIdentityInfo><SystemIdentityInfo><uniqueid>admin</uniqueid><name>Administrator</name><active>true</active><info><CustomPair><key>Email</key><value>admin@alfresco.com</value></CustomPair><CustomPair><key>FirstName</key><value>Administrator</value></CustomPair><CustomPair><key>LastName</key><value /></CustomPair></info></SystemIdentityInfo><SystemIdentityInfo><uniqueid>guest</uniqueid><name>Guest</name><active>false</active><info><CustomPair><key>FirstName</key><value>Guest</value></CustomPair><CustomPair><key>LastName</key><value /></CustomPair></info></SystemIdentityInfo><SystemIdentityInfo><uniqueid>mjackson</uniqueid><name>Mike Jackson</name><active>false</active><info><CustomPair><key>Email</key><value>mjackson@example.com</value></CustomPair><CustomPair><key>FirstName</key><value>Mike</value></CustomPair><CustomPair><key>LastName</key><value>Jackson</value></CustomPair></info></SystemIdentityInfo></items></GetUsers2Result></GetUsers2Response></soap:Body></soap:Envelope>\r\n"
+  }
+]

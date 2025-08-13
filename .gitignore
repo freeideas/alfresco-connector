@@ -1,0 +1,80 @@
+# Build outputs
+bin/
+obj/
+# Exception: Allow bin directory under dist for pre-built deployment
+!dist/DataConnector/bin/
+!dist/DataConnector/bin/*.dll
+*.dll
+*.exe
+*.pdb
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.env
+
+# Test coverage
+*.coverage
+.coverage
+coverage.xml
+*.cover
+
+# Package files
+*.nupkg
+*.snupkg
+
+# Local settings
+appsettings.Development.json
+appsettings.Local.json
+
+# Deployment
+# dist/ is intentionally NOT ignored - we include pre-built binaries for users
+# who want to deploy without building from source
+publish/dist/
+installer/bin/
+installer/obj/
+installer/publish-*/

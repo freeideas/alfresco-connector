@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="GetUsers2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalColumns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConnectionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="servers" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="scrubAllData" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="connectionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sourceSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customparam" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customparam2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="customboolparam" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="customboolparam2" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="customboolparam3" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="customboolparam4" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="customparam3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customparam4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customchoiceval" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customchoiceval2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customchoiceval3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customchoiceval4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoolParameter" type="tns:ArrayOfBoolPair" />
+          <s:element minOccurs="0" maxOccurs="1" name="StringParameter" type="tns:ArrayOfStringPair" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChoiceParameter" type="tns:ArrayOfChoicePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBoolPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BoolPair" nillable="true" type="tns:BoolPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BoolPair">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPairOfStringBoolean" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomPairOfStringBoolean">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPair">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomPairOfStringString">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPair">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ChoicePair">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPairOfStringString" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StringPair">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPairOfStringString" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomPairOfStringCustomParameter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPair">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:CustomParameter" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomParameter" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefaultValue" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disabled" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Required" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidationExpression" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tab" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomParameterOfBoolean" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomParameter" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BoolParameter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomParameterOfBoolean" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomParameterOfString" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomParameter" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ChoiceParameter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomParameterOfString">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Choices" type="tns:ArrayOfChoiceValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfChoiceValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ChoiceValue" nillable="true" type="tns:ChoiceValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChoiceValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StringParameter">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomParameterOfString">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Mode" type="tns:TextBoxMode" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="TextBoxMode">
+        <s:restriction base="s:string">
+          <s:enumeration value="SingleLine" />
+          <s:enumeration value="MultiLine" />
+          <s:enumeration value="Password" />
+          <s:enumeration value="Color" />
+          <s:enumeration value="Date" />
+          <s:enumeration value="DateTime" />
+          <s:enumeration value="DateTimeLocal" />
+          <s:enumeration value="Email" />
+          <s:enumeration value="Month" />
+          <s:enumeration value="Number" />
+          <s:enumeration value="Range" />
+          <s:enumeration value="Search" />
+          <s:enumeration value="Phone" />
+          <s:enumeration value="Time" />
+          <s:enumeration value="Url" />
+          <s:enumeration value="Week" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomParameterPair">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomPairOfStringCustomParameter" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfStringPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StringPair" nillable="true" type="tns:StringPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfChoicePair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ChoicePair" nillable="true" type="tns:ChoicePair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomPair" nillable="true" type="tns:CustomPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TraceLevel">
+        <s:restriction base="s:string">
+          <s:enumeration value="Error" />
+          <s:enumeration value="Warning" />
+          <s:enumeration value="Trace" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SystemIdentityInfo">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="uniqueid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueId" type="s:string" />
+          </s:choice>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:choice>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="activeDirectoryID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActiveDirectoryId" type="s:string" />
+          </s:choice>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:ArrayOfCustomPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReturnInterface">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="error" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="traceInfo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SystemIdentityInfoReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfSystemIdentityInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSystemIdentityInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SystemIdentityInfo" nillable="true" type="tns:SystemIdentityInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUsers2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsers2Result" type="tns:SystemIdentityInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroups2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalColumns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroups2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroups2Result" type="tns:SystemIdentityInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsUsers2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsUsers2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsUsers2Result" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StringArrayReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfString" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetGroupsGroups2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsGroups2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsGroups2Result" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServers2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServers2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServers2Result" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatastoreTypes2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataStoreInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="server" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templateid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="templatedesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="defaultviewname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="defaultviewid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="alert" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MBFlagValue" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataStoreType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="parentid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="system" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="typedata" type="tns:ArrayOfMetaData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMetaData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MetaData" nillable="true" type="tns:MetaData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MetaData">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MetaDataBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="SubValues" type="tns:MetaData" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MetaDataBase">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="1" maxOccurs="1" name="dataType" type="tns:MetaDataTypeEnum" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataType" type="tns:MetaDataTypeEnum" />
+          </s:choice>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="propertyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PropertyName" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="1" maxOccurs="1" name="isMultValue" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsMultiValue" type="s:boolean" />
+          </s:choice>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MetaDataTypeEnum">
+        <s:restriction base="s:string">
+          <s:enumeration value="String" />
+          <s:enumeration value="Bool" />
+          <s:enumeration value="Double" />
+          <s:enumeration value="Integer" />
+          <s:enumeration value="Date" />
+          <s:enumeration value="Table" />
+          <s:enumeration value="Row" />
+          <s:enumeration value="File" />
+          <s:enumeration value="STRING" />
+          <s:enumeration value="BOOLEAN" />
+          <s:enumeration value="NUMBER" />
+          <s:enumeration value="INTEGER" />
+          <s:enumeration value="DATE" />
+          <s:enumeration value="TABLE" />
+          <s:enumeration value="ROW" />
+          <s:enumeration value="FILE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfDataStoreType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataStoreType" nillable="true" type="tns:DataStoreType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDatastoreTypes2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatastoreTypes2Result" type="tns:DataStoreTypeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataStoreTypeReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="datastoretypes" type="tns:ArrayOfDataStoreType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="Crawl2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="foldersubId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="typefilters" type="tns:DataStoreTypeFilter" />
+            <s:element minOccurs="0" maxOccurs="1" name="customFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="allowedExtensions" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="isIncremental" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxReturns" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxFileSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="crawlID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="crawler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="page" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataStoreTypeFilter">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="filterAction" type="tns:DataStoreTypeFilterEnum" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataStoreTypes" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DataStoreTypeFilterEnum">
+        <s:restriction base="s:string">
+          <s:enumeration value="IncludeAll" />
+          <s:enumeration value="IncludeOnly" />
+          <s:enumeration value="ExcludeOnly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CrawlReturnItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="encodeid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datastoretypeid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="foldersubid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isFolder" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="securityChanged" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="fileChanged" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="metadataChanged" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="deleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCrawlReturnItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CrawlReturnItem" nillable="true" type="tns:CrawlReturnItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Crawl2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Crawl2Result" type="tns:CrawlReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CrawlReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="moreExist" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="lastUpdateDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfCrawlReturnItem" />
+              <s:element minOccurs="1" maxOccurs="1" name="currentSystemTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="nextSyncToken">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element ref="s:schema" />
+                    <s:any />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="1" maxOccurs="1" name="folderDeleted" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetSecurityChanges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="foldersubid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="typefilters" type="tns:DataStoreTypeFilter" />
+            <s:element minOccurs="0" maxOccurs="1" name="customFilter" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxReturns" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="crawlID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="crawler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityChangesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSecurityChangesResult" type="tns:CrawlReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemData2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="foldersubid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="typefilters" type="tns:DataStoreTypeFilter" />
+            <s:element minOccurs="0" maxOccurs="1" name="sharePath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxFileSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="allowedExtensions" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="isIncremental" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="crawlID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="crawler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="getmetadata" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="getsecurity" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="getfile" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDouble">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="double" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMetaDataValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MetaDataValue" nillable="true" type="tns:MetaDataValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MetaDataValue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MetaDataBase">
+            <s:sequence>
+              <s:choice minOccurs="0" maxOccurs="unbounded">
+                <s:element minOccurs="1" maxOccurs="1" name="bValue" type="s:boolean" />
+                <s:element minOccurs="1" maxOccurs="1" name="nValue" type="s:double" />
+                <s:element minOccurs="0" maxOccurs="1" name="nValues" type="tns:ArrayOfDouble" />
+                <s:element minOccurs="1" maxOccurs="1" name="iValue" type="s:int" />
+                <s:element minOccurs="0" maxOccurs="1" name="iValues" type="tns:ArrayOfInt" />
+                <s:element minOccurs="1" maxOccurs="1" name="dValue" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="dValues" type="tns:ArrayOfDateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="sValue" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="sValues" type="tns:ArrayOfString" />
+              </s:choice>
+              <s:element minOccurs="0" maxOccurs="1" name="Value" />
+              <s:choice minOccurs="1" maxOccurs="1">
+                <s:element minOccurs="1" maxOccurs="1" name="directCrawlProp" type="s:boolean" />
+                <s:element minOccurs="1" maxOccurs="1" name="DirectCrawlProp" type="s:boolean" />
+              </s:choice>
+              <s:choice minOccurs="1" maxOccurs="1">
+                <s:element minOccurs="0" maxOccurs="1" name="propertyGUID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PropertyGUID" type="s:string" />
+              </s:choice>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="SubValues" type="tns:MetaDataValue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ItemData2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemData2Result" type="tns:ItemReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ItemReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="metadata" type="tns:ArrayOfMetaDataValue" />
+              <s:element minOccurs="0" maxOccurs="1" name="grantUsers" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="denyUser" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="grantGroups" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="denyGroups" type="tns:ArrayOfString" />
+              <s:element minOccurs="1" maxOccurs="1" name="lastUpdateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="isPublic" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="notFound" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="fileRetType" type="tns:FileReturnType" />
+              <s:element minOccurs="0" maxOccurs="1" name="filePath" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="fileExtension" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="fileIsNativeZip" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="author" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="container" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailfolder" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailfoldertype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailmailbox" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propdescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propsubject" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propversionlabel" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propstatus" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propkeywords" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="dataStoreTypeID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="dataStoreTypeName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="binaryACL" type="s:base64Binary" />
+              <s:element minOccurs="1" maxOccurs="1" name="binaryACLReturned" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailTo" type="tns:ArrayOfString" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailFrom" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="propemailCC" type="tns:ArrayOfString" />
+              <s:element minOccurs="1" maxOccurs="1" name="propemailSentRedv" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="FileReturnType">
+        <s:restriction base="s:string">
+          <s:enumeration value="BinaryObject" />
+          <s:enumeration value="NoFile" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CheckSecurity2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfSecurityItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userids" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSecurityItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SecurityItem" nillable="true" type="tns:SecurityItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SecurityItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="indexpos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="contentid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="foldersubid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="validated" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckSecurity2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckSecurity2Result" type="tns:SecurityItemReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SecurityItemReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfSecurityItem" />
+              <s:element minOccurs="1" maxOccurs="1" name="failed" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="notEnabled" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="writetoLog" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetWebServices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConnectorDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConnectorDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConnectorDetails" nillable="true" type="tns:ConnectorDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWebServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWebServicesResult" type="tns:WebServiceInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebServiceInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="services" type="tns:ArrayOfCustomPair" />
+              <s:element minOccurs="0" maxOccurs="1" name="detailedServices" type="tns:ArrayOfConnectorDetails" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetAvailableDatastores2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="templateService" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadTemplates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataStoreInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataStoreInfo" nillable="true" type="tns:DataStoreInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableDatastores2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableDatastores2Result" type="tns:DataStoreInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataStoreInfoReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnInterface">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="datastores" type="tns:ArrayOfDataStoreInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="EnableTroubleshooting2">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnableTroubleshooting2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnableTroubleshooting2Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisableTroubleshooting2">
+        <s:complexType />
+      </s:element>
+      <s:element name="DisableTroubleshooting2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DisableTroubleshooting2Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CollectConnectorLogs2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CollectConnectorLogs2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CollectConnectorLogs2Result" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Describe">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="SecurityScriptMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Script" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Entity" type="tns:PrincipalType" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetDirectory" type="tns:TargetDirectoryType" />
+          <s:element minOccurs="0" maxOccurs="1" name="LibraryMinVersion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PrincipalType">
+        <s:restriction base="s:string">
+          <s:enumeration value="User" />
+          <s:enumeration value="Group" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TargetDirectoryType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AD" />
+          <s:enumeration value="AAD" />
+          <s:enumeration value="All" />
+          <s:enumeration value="MSS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="DInfo" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConnectorTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Login" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Password" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PasswordPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrasswordDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginPasswordOnly" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="InterfaceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParam" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDefault" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParamRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParam2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamPrompt2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDesc2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDefault2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParamRequired2" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParam3" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamPrompt3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDesc3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDefault3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParamRequired3" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParam4" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamPrompt4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDesc4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnParamDefault4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnParamRequired4" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParam" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParamDefault" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParam2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamPrompt2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamDesc2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParamDefault2" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParam3" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamPrompt3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamDesc3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParamDefault3" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParam4" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamPrompt4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnBoolParamDesc4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnBoolParamDefault4" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParam" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDefault" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamChoices" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParamRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParam2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamPrompt2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDesc2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDefault2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamChoices2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParamRequired2" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParam3" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamPrompt3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDesc3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDefault3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamChoices3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParamRequired3" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParam4" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamPrompt4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDesc4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamDefault4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnChoiceParamChoices4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConnChoiceParamRequired4" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentFilter" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentFilterPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentFilterDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentFilterRequired" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Servers" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServersPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServersDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServersAutoLoad" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataStores" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataStoresPrompt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataStoresDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SupportsTemplates" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisableWizard" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubLicenseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrubDataAlways" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImpersonateUser" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MultiLoginDelimiter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MultiLoginEnabled" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DiscoveryInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultValueForOverridableFields" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ServersMultiSelect" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MailBoxes" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MailboxOwnersIgnore" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DataStoresMultiSelect" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Types" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UseDeltaForIncremental" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TypesFilter" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="TypesPrompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TypesDesc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MetaDataByType" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuthorByDataStore" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultAuthorField" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TitleByDataStore" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultTitleField" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultURLField" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultExtensionField" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FileEditable" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultFileField" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultContainerURLField" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter1" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter1Prompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter1Desc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter1Required" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter2" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter2Prompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter2Desc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter2Required" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter3" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter3Prompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MBFilter3Desc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBFilter3Required" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MBSegmentation" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserLoad" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserLoadAdditionalColumns" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserLoadAdditionalPrompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserLoadAdditionalDesc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupLoad" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupLoadAdditionalColumns" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="GroupLoadAdditionalPrompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GroupLoadAdditionalDesc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupUsersLoad" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupGroupsLoad" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AllUsersGroup" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="RealTimeSecurity" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="RealTimeSecurityDesc" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RealTimeSecurityMultiUser" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SupportsIncrementalCrawling" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UseCustomPagingFix" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MultipleWebServiceOption" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SupportsNativeACL" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CheckForChangeBasedOnIDOnly" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SupportsSecurityOnlyUpdate" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SupportsChangeOnlyUpdate" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UseFullFolderCrawlModel" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="DefaultSecurityScripts" type="tns:ArrayOfSecurityScriptMapping" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConnectionParams" type="tns:ArrayOfCustomParameterPair" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContentParams" type="tns:ArrayOfCustomParameterPair" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuthorEditable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TitleEditable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="URLEditable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExtensionEditable" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContainerURLEditable" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSecurityScriptMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SecurityScriptMapping" nillable="true" type="tns:SecurityScriptMapping" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomParameterPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomParameterPair" nillable="true" type="tns:CustomParameterPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DescribeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescribeResult" type="tns:DiscoveryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalColumns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersResult" type="tns:SystemIdentityInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalColumns" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsResult" type="tns:SystemIdentityInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsUsersResult" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsGroupsResult" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecuritySyncComplete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecuritySyncCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecuritySyncCompleteResult" type="tns:ReturnInterface" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSecurity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfSecurityItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSecurityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckSecurityResult" type="tns:SecurityItemReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServersResult" type="tns:StringArrayReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableDatastores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter3" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableDatastoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableDatastoresResult" type="tns:DataStoreInfoReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatastoreTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatastoreTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatastoreTypesResult" type="tns:DataStoreTypeReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Crawl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="typefilters" type="tns:DataStoreTypeFilter" />
+            <s:element minOccurs="0" maxOccurs="1" name="customFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="allowedExtensions" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="isIncremental" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxReturns" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+            <s:element minOccurs="1" maxOccurs="1" name="crawlID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrawlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CrawlResult" type="tns:CrawlReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="conn" type="tns:ConnectionInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="customparams" type="tns:ArrayOfCustomPair" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastore" type="tns:DataStoreInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="typefilters" type="tns:DataStoreTypeFilter" />
+            <s:element minOccurs="0" maxOccurs="1" name="datastoretypeid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sharePath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxFileSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="allowedExtensions" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastUpdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="isIncremental" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tl" type="tns:TraceLevel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemDataResult" type="tns:ItemReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUsers2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers2" />
+  </wsdl:message>
+  <wsdl:message name="GetUsers2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsers2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetGroups2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroups2" />
+  </wsdl:message>
+  <wsdl:message name="GetGroups2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroups2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsUsers2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsUsers2" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsUsers2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsUsers2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsGroups2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsGroups2" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsGroups2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsGroups2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetServers2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetServers2" />
+  </wsdl:message>
+  <wsdl:message name="GetServers2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetServers2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDatastoreTypes2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatastoreTypes2" />
+  </wsdl:message>
+  <wsdl:message name="GetDatastoreTypes2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatastoreTypes2Response" />
+  </wsdl:message>
+  <wsdl:message name="Crawl2SoapIn">
+    <wsdl:part name="parameters" element="tns:Crawl2" />
+  </wsdl:message>
+  <wsdl:message name="Crawl2SoapOut">
+    <wsdl:part name="parameters" element="tns:Crawl2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityChangesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSecurityChanges" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityChangesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSecurityChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemData2SoapIn">
+    <wsdl:part name="parameters" element="tns:ItemData2" />
+  </wsdl:message>
+  <wsdl:message name="ItemData2SoapOut">
+    <wsdl:part name="parameters" element="tns:ItemData2Response" />
+  </wsdl:message>
+  <wsdl:message name="CheckSecurity2SoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSecurity2" />
+  </wsdl:message>
+  <wsdl:message name="CheckSecurity2SoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSecurity2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetWebServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebServices" />
+  </wsdl:message>
+  <wsdl:message name="GetWebServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableDatastores2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableDatastores2" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableDatastores2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableDatastores2Response" />
+  </wsdl:message>
+  <wsdl:message name="EnableTroubleshooting2SoapIn">
+    <wsdl:part name="parameters" element="tns:EnableTroubleshooting2" />
+  </wsdl:message>
+  <wsdl:message name="EnableTroubleshooting2SoapOut">
+    <wsdl:part name="parameters" element="tns:EnableTroubleshooting2Response" />
+  </wsdl:message>
+  <wsdl:message name="DisableTroubleshooting2SoapIn">
+    <wsdl:part name="parameters" element="tns:DisableTroubleshooting2" />
+  </wsdl:message>
+  <wsdl:message name="DisableTroubleshooting2SoapOut">
+    <wsdl:part name="parameters" element="tns:DisableTroubleshooting2Response" />
+  </wsdl:message>
+  <wsdl:message name="CollectConnectorLogs2SoapIn">
+    <wsdl:part name="parameters" element="tns:CollectConnectorLogs2" />
+  </wsdl:message>
+  <wsdl:message name="CollectConnectorLogs2SoapOut">
+    <wsdl:part name="parameters" element="tns:CollectConnectorLogs2Response" />
+  </wsdl:message>
+  <wsdl:message name="DescribeSoapIn">
+    <wsdl:part name="parameters" element="tns:Describe" />
+  </wsdl:message>
+  <wsdl:message name="DescribeSoapOut">
+    <wsdl:part name="parameters" element="tns:DescribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupsGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecuritySyncCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:SecuritySyncComplete" />
+  </wsdl:message>
+  <wsdl:message name="SecuritySyncCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:SecuritySyncCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckSecuritySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSecurity" />
+  </wsdl:message>
+  <wsdl:message name="CheckSecuritySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSecurityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServers" />
+  </wsdl:message>
+  <wsdl:message name="GetServersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableDatastoresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableDatastores" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableDatastoresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableDatastoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatastoreTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatastoreTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetDatastoreTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatastoreTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrawlSoapIn">
+    <wsdl:part name="parameters" element="tns:Crawl" />
+  </wsdl:message>
+  <wsdl:message name="CrawlSoapOut">
+    <wsdl:part name="parameters" element="tns:CrawlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemData" />
+  </wsdl:message>
+  <wsdl:message name="ItemDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataConnectorSoap">
+    <wsdl:operation name="GetUsers2">
+      <wsdl:input message="tns:GetUsers2SoapIn" />
+      <wsdl:output message="tns:GetUsers2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups2">
+      <wsdl:input message="tns:GetGroups2SoapIn" />
+      <wsdl:output message="tns:GetGroups2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers2">
+      <wsdl:input message="tns:GetGroupsUsers2SoapIn" />
+      <wsdl:output message="tns:GetGroupsUsers2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups2">
+      <wsdl:input message="tns:GetGroupsGroups2SoapIn" />
+      <wsdl:output message="tns:GetGroupsGroups2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServers2">
+      <wsdl:input message="tns:GetServers2SoapIn" />
+      <wsdl:output message="tns:GetServers2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes2">
+      <wsdl:input message="tns:GetDatastoreTypes2SoapIn" />
+      <wsdl:output message="tns:GetDatastoreTypes2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Crawl2">
+      <wsdl:input message="tns:Crawl2SoapIn" />
+      <wsdl:output message="tns:Crawl2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityChanges">
+      <wsdl:input message="tns:GetSecurityChangesSoapIn" />
+      <wsdl:output message="tns:GetSecurityChangesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemData2">
+      <wsdl:input message="tns:ItemData2SoapIn" />
+      <wsdl:output message="tns:ItemData2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity2">
+      <wsdl:input message="tns:CheckSecurity2SoapIn" />
+      <wsdl:output message="tns:CheckSecurity2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebServices">
+      <wsdl:input message="tns:GetWebServicesSoapIn" />
+      <wsdl:output message="tns:GetWebServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores2">
+      <wsdl:input message="tns:GetAvailableDatastores2SoapIn" />
+      <wsdl:output message="tns:GetAvailableDatastores2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableTroubleshooting2">
+      <wsdl:input message="tns:EnableTroubleshooting2SoapIn" />
+      <wsdl:output message="tns:EnableTroubleshooting2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableTroubleshooting2">
+      <wsdl:input message="tns:DisableTroubleshooting2SoapIn" />
+      <wsdl:output message="tns:DisableTroubleshooting2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CollectConnectorLogs2">
+      <wsdl:input message="tns:CollectConnectorLogs2SoapIn" />
+      <wsdl:output message="tns:CollectConnectorLogs2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Describe">
+      <wsdl:input message="tns:DescribeSoapIn" />
+      <wsdl:output message="tns:DescribeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersSoapIn" />
+      <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input message="tns:GetGroupsSoapIn" />
+      <wsdl:output message="tns:GetGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers">
+      <wsdl:input message="tns:GetGroupsUsersSoapIn" />
+      <wsdl:output message="tns:GetGroupsUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups">
+      <wsdl:input message="tns:GetGroupsGroupsSoapIn" />
+      <wsdl:output message="tns:GetGroupsGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecuritySyncComplete">
+      <wsdl:input message="tns:SecuritySyncCompleteSoapIn" />
+      <wsdl:output message="tns:SecuritySyncCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity">
+      <wsdl:input message="tns:CheckSecuritySoapIn" />
+      <wsdl:output message="tns:CheckSecuritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <wsdl:input message="tns:GetServersSoapIn" />
+      <wsdl:output message="tns:GetServersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores">
+      <wsdl:input message="tns:GetAvailableDatastoresSoapIn" />
+      <wsdl:output message="tns:GetAvailableDatastoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes">
+      <wsdl:input message="tns:GetDatastoreTypesSoapIn" />
+      <wsdl:output message="tns:GetDatastoreTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Crawl">
+      <wsdl:input message="tns:CrawlSoapIn" />
+      <wsdl:output message="tns:CrawlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemData">
+      <wsdl:input message="tns:ItemDataSoapIn" />
+      <wsdl:output message="tns:ItemDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataConnectorSoap" type="tns:DataConnectorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsers2">
+      <soap:operation soapAction="http://tempuri.org/GetUsers2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups2">
+      <soap:operation soapAction="http://tempuri.org/GetGroups2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers2">
+      <soap:operation soapAction="http://tempuri.org/GetGroupsUsers2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups2">
+      <soap:operation soapAction="http://tempuri.org/GetGroupsGroups2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers2">
+      <soap:operation soapAction="http://tempuri.org/GetServers2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes2">
+      <soap:operation soapAction="http://tempuri.org/GetDatastoreTypes2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crawl2">
+      <soap:operation soapAction="http://tempuri.org/Crawl2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityChanges">
+      <soap:operation soapAction="http://tempuri.org/GetSecurityChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemData2">
+      <soap:operation soapAction="http://tempuri.org/ItemData2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity2">
+      <soap:operation soapAction="http://tempuri.org/CheckSecurity2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebServices">
+      <soap:operation soapAction="http://tempuri.org/GetWebServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores2">
+      <soap:operation soapAction="http://tempuri.org/GetAvailableDatastores2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableTroubleshooting2">
+      <soap:operation soapAction="http://tempuri.org/EnableTroubleshooting2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableTroubleshooting2">
+      <soap:operation soapAction="http://tempuri.org/DisableTroubleshooting2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CollectConnectorLogs2">
+      <soap:operation soapAction="http://tempuri.org/CollectConnectorLogs2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Describe">
+      <soap:operation soapAction="http://tempuri.org/Describe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://tempuri.org/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers">
+      <soap:operation soapAction="http://tempuri.org/GetGroupsUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups">
+      <soap:operation soapAction="http://tempuri.org/GetGroupsGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecuritySyncComplete">
+      <soap:operation soapAction="http://tempuri.org/SecuritySyncComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity">
+      <soap:operation soapAction="http://tempuri.org/CheckSecurity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <soap:operation soapAction="http://tempuri.org/GetServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores">
+      <soap:operation soapAction="http://tempuri.org/GetAvailableDatastores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes">
+      <soap:operation soapAction="http://tempuri.org/GetDatastoreTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crawl">
+      <soap:operation soapAction="http://tempuri.org/Crawl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemData">
+      <soap:operation soapAction="http://tempuri.org/ItemData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataConnectorSoap12" type="tns:DataConnectorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsers2">
+      <soap12:operation soapAction="http://tempuri.org/GetUsers2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups2">
+      <soap12:operation soapAction="http://tempuri.org/GetGroups2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers2">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupsUsers2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups2">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupsGroups2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers2">
+      <soap12:operation soapAction="http://tempuri.org/GetServers2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes2">
+      <soap12:operation soapAction="http://tempuri.org/GetDatastoreTypes2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crawl2">
+      <soap12:operation soapAction="http://tempuri.org/Crawl2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityChanges">
+      <soap12:operation soapAction="http://tempuri.org/GetSecurityChanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemData2">
+      <soap12:operation soapAction="http://tempuri.org/ItemData2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity2">
+      <soap12:operation soapAction="http://tempuri.org/CheckSecurity2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebServices">
+      <soap12:operation soapAction="http://tempuri.org/GetWebServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores2">
+      <soap12:operation soapAction="http://tempuri.org/GetAvailableDatastores2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableTroubleshooting2">
+      <soap12:operation soapAction="http://tempuri.org/EnableTroubleshooting2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableTroubleshooting2">
+      <soap12:operation soapAction="http://tempuri.org/DisableTroubleshooting2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CollectConnectorLogs2">
+      <soap12:operation soapAction="http://tempuri.org/CollectConnectorLogs2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Describe">
+      <soap12:operation soapAction="http://tempuri.org/Describe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupsUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupsGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecuritySyncComplete">
+      <soap12:operation soapAction="http://tempuri.org/SecuritySyncComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurity">
+      <soap12:operation soapAction="http://tempuri.org/CheckSecurity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <soap12:operation soapAction="http://tempuri.org/GetServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDatastores">
+      <soap12:operation soapAction="http://tempuri.org/GetAvailableDatastores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatastoreTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetDatastoreTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crawl">
+      <soap12:operation soapAction="http://tempuri.org/Crawl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemData">
+      <soap12:operation soapAction="http://tempuri.org/ItemData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataConnector">
+    <wsdl:port name="DataConnectorSoap" binding="tns:DataConnectorSoap">
+      <soap:address location="http://localhost:4567/DataConnector.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataConnectorSoap12" binding="tns:DataConnectorSoap12">
+      <soap12:address location="http://localhost:4567/DataConnector.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

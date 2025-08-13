@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-15-00-000000000",
+    "direction": ">",
+    "data": "POST /DataConnector.asmx HTTP/1.1\r\nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; MS Web Services Client Protocol 4.0.30319.42000)\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://tempuri.org/GetWebServices\"\r\nHost: localhost:1582\r\nContent-Length: 350\r\nExpect: 100-continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-15-00-001000000",
+    "direction": "<",
+    "data": "HTTP/1.1 100 Continue\r\n\r\n"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-15-00-002000000",
+    "direction": ">",
+    "data": "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetWebServices xmlns=\"http://tempuri.org/\" /></soap:Body></soap:Envelope>"
+  },
+  {
+    "id": 1,
+    "stamp": "2025-07-28_12-15-00-100000000",
+    "direction": "<",
+    "data": "HTTP/1.1 200 OK\r\nCache-Control: private, max-age=0\r\nContent-Type: text/xml; charset=utf-8\r\nServer: Microsoft-IIS/10.0\r\nX-AspNet-Version: 4.0.30319\r\nX-Powered-By: ASP.NET\r\nDate: Mon, 28 Jul 2025 12:15:00 GMT\r\nContent-Length: 450\r\n\r\n<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetWebServicesResponse xmlns=\"http://tempuri.org/\"><GetWebServicesResult><services /></GetWebServicesResult></GetWebServicesResponse></soap:Body></soap:Envelope>"
+  }
+]

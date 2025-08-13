@@ -1,0 +1,25 @@
+{
+  "description": "Test connection information for ExternalApi unit tests",
+  "warning": "This file contains test server credentials only - NOT for production use",
+  "required": "This file MUST be present for Execute_TEST_() methods to work",
+  
+  "connection": {
+    "account": "admin",
+    "password": "admin",
+    "customparam": "http://100.115.192.75:8080/alfresco",
+    "customparam2": "",
+    "customparam3": "",
+    "customboolparam": false,
+    "customboolparam2": false,
+    "customboolparam3": false,
+    "customboolparam4": false
+  },
+  
+  "notes": {
+    "account": "Test server username",
+    "password": "Test server password",
+    "customparam": "Base URL for the external test service",
+    "customparam2": "Reserved for future use",
+    "customparam3": "Reserved for future use"
+  }
+}

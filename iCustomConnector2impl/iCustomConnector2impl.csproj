@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Multi-targeting: .NET 8.0 for local testing, .NET Standard 2.0 for compatibility -->
+    <TargetFrameworks>net8.0;netstandard2.0</TargetFrameworks>
+    <LangVersion>7.3</LangVersion>
+    <RootNamespace>AiGeneratedConnector</RootNamespace>
+    <!-- Only create exe for net8.0 target -->
+    <OutputType Condition="'$(TargetFramework)' == 'net8.0'">Exe</OutputType>
+  </PropertyGroup>
+
+</Project>
